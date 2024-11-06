@@ -32,6 +32,4 @@ jobs:
 
       - name: Deploy (example step)
         run: |
-          # Здесь можно добавить команду для деплоя, например:
-          # scp -r ./dist/* user@your-server:/path/to/deployment
-          echo "Deploying project..."
+          npm run serve
