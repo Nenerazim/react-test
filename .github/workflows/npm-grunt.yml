@@ -32,4 +32,4 @@ jobs:
 
       - name: Deploy (example step)
         run: |
-          npm run serve
+          npm run deploy
