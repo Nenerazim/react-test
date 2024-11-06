@@ -1,4 +1,4 @@
-name: NodeJS with Grunt
+name: NodeJS with Vite
 
 on:
   push:
@@ -15,14 +15,23 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        grunt
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build for development
+        run: |
+          npm run build:development
+
+      - name: Deploy (example step)
+        run: |
+          # Здесь можно добавить команду для деплоя, например:
+          # scp -r ./dist/* user@your-server:/path/to/deployment
+          echo "Deploying project..."
